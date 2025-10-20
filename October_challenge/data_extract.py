@@ -24,3 +24,6 @@ We shall start with our fact table
 
 print(fact_data.describe())
 print(fact_data.info())
+
+print(fact_data.columns)
+print(dim_data.columns)

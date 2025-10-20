@@ -1,18 +1,44 @@
-Task  Brief:
-Consumer Financial Complaints Analytics Challenge
 
-Step into the role of a data analyst at the Consumer Financial Protection Bureau (CFPB), a U.S. government agency ensuring fairness and accountability in the financial sector.
-The CFPB collects complaints from consumers across the United States regarding financial products and services. Each complaint is tracked from submission through company response.
-You’ve been provided with a dataset of consumer complaints spanning multiple financial categories, locations, and companies. Your mission is to create an analytical report that identifies patterns in complaints, evaluates company responses, and highlights areas of concern for regulators and consumers.
+Project Title: Rising Complaints Among Customers
 
-Questions to guide your analysis:
-When do complaints rise or fall over time?
-Which states and regions are hotspots?
-Which products and sub-products drive the most complaints?
-Which issues and sub-issues are most common or most severe?
-How fast, and how timely are company responses to complaints?
-Which companies show the highest complaint rates relative to market share?
-Do company traits (size tier, reputation, enforcement history) correlate with outcomes?
-Do submission channels differ in response speed or outcomes?
-✨ Note: These questions are just starting points. You’re encouraged to explore the data in your own way and share any unexpected findings that could help Nova Bank lend more responsibly.
-Your insights could help regulators strengthen consumer protection policies, support journalists in highlighting financial fairness issues, and provide consumers with more transparency about financial institutions.
+Dataset Source
+Onyx Data October 2025 Data Challenge — United States Consumer Financial Protection Bureau (CFPB)
+
+Project Description
+
+This is a simple analytics project that focuses on identifying factors influencing the rising number of customer complaints. It does not involve complex data engineering tasks such as large-scale extractions or routine data updates.
+
+Core Tools:
+* Python: Used for data extraction, transformation, loading, small-scale analytics, and correlational analysis to identify potential drivers of the issue.
+* Power BI: Used for interactive data visualization and dashboard creation.
+
+The analysis is divided into two parts:
+1. Descriptive Analysis – Summarizes and explores the dataset.
+2. Inferential Analysis – Examines correlations and relationships to draw deeper insights.
+(Further details can be found in the Business Case document.)
+
+Environment Setup
+The environment for this project was set up using the uv package installer. Follow the steps below to replicate the setup:
+1. Determine your preferred folder structure for organizing project files.
+2. Open the project folder in VS Code.
+3. In the terminal, initialize the project: uv init
+4. Create a virtual environment:
+    uv venv
+5. Activate the virtual environment:
+    source .venv/bin/activate
+6. Add project dependencies:
+    uv add numpy pandas matplotlib plotly azure-identity azure-storage-blob openpyxl
+
+Dependencies:
+* pandas
+* numpy
+* matplotlib
+* plotly
+* azure-identity
+* azure-storage-blob
+* openpyxl
+
+Repository
+Alternatively, you can clone the repository directly using:
+git clone https://github.com/da-strategist/Onyx_Data-challenge.git
+          
