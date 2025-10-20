@@ -14,5 +14,7 @@ How fast, and how timely are company responses to complaints?
 Which companies show the highest complaint rates relative to market share?
 Do company traits (size tier, reputation, enforcement history) correlate with outcomes?
 Do submission channels differ in response speed or outcomes?
-✨ Note: These questions are just starting points. You’re encouraged to explore the data in your own way and share any unexpected findings that could help Nova Bank lend more responsibly.
+
+
+Note: These questions are just starting points. You’re encouraged to explore the data in your own way and share any unexpected findings that could help Nova Bank lend more responsibly.
 Your insights could help regulators strengthen consumer protection policies, support journalists in highlighting financial fairness issues, and provide consumers with more transparency about financial institutions.
