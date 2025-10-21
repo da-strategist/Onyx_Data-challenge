@@ -1,0 +1,7 @@
+{
+	"name": "dbconnection",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "This here is used to connect to our on-premise sql server database"
+	}
+}

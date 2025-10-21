@@ -1,0 +1,123 @@
+{
+	"name": "Data_ingest_01",
+	"properties": {
+		"description": "Here we now perform our actual data importation from our on-premise sql db",
+		"activities": [
+			{
+				"name": "Table_lookup",
+				"description": "Here we extract the names of each table in our source",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT t.name AS Tablename,\ns.name AS Schemaname\nFROM sys.tables t\nINNER JOIN sys.schemas s\nON t.schema_id = s.schema_id\nWHERE s.name = 'SalesLT'",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerSourceLS_01",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Table_lookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Table_lookup').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Data Import flow",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"sqlReaderQuery": {
+										"value": "@{concat('SELECT * FROM ', item().Schemaname, '.', item().Tablename)}",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerSourceLS_01",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DataLakeDestnation_01",
+									"type": "DatasetReference",
+									"parameters": {
+										"schemaname": {
+											"value": "@item().Schemaname",
+											"type": "Expression"
+										},
+										"tablename": {
+											"value": "@item().Tablename",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-06-08T13:37:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

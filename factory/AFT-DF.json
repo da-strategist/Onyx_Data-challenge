@@ -1,0 +1,9 @@
+{
+	"name": "AFT-DF",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cde65b4d-bf05-4d61-a02c-89e3bde67a8f",
+		"tenantId": "1c349afe-1af7-45c8-bb53-6aac414cebbd"
+	}
+}
