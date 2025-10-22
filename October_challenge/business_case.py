@@ -13,6 +13,9 @@ The primary objectives of this analysis are to:
 * Evaluate company responses to determine responsiveness, resolution effectiveness, and adherence to consumer protection standards.
 * Highlight key areas of concern for both regulators and consumers to support data-driven policy decisions and business improvements.
 
+Key Questions:
+
+
 Scope
 This project focuses on analyzing consumer complaint data provided by the Consumer Financial Protection Bureau (CFPB). The analysis will cover:
 * Timeframe: The dataset includes complaints recorded within the period provided by the CFPB dataset.
@@ -22,7 +25,7 @@ This project focuses on analyzing consumer complaint data provided by the Consum
 * Tools and Techniques:
     * Python for data extraction, transformation, and correlational analysis.
     * Power BI for visualization and reporting.
-    
+
 Out of Scope:
 * Large-scale data engineering tasks (e.g., automated ETL pipelines, real-time data streaming).
 * Predictive modeling or machine learning beyond basic correlation analysis.
