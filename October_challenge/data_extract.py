@@ -11,13 +11,20 @@ from io import BytesIO
 
 data = './October_challenge/Fin_consumer.xlsx'
 
-fact_data = pd.read_excel(data, sheet_name= 'Complaints (Fact)', header= 0)
-#print(fact_data.head())
+def load_fact_data():
+    fact_data = pd.read_excel(data, sheet_name= 'Complaints (Fact)', header= 0)
+    return fact_data
 
-dim_data = pd.read_excel(data, sheet_name= 'Company', header= 0)
+def load_dim_data():
+    dim_data = pd.read_excel(data, sheet_name= 'Company', header= 0)
+    return dim_data
 
-#print(fact_data.head())
-#print(dim_data.head())
+if __name__ == '__main__':
+    # This code only runs if data_extract.py is run directly
+    fact_data = load_fact_data()
+    dim_data = load_dim_data()
+    print(fact_data.head())
+    print(dim_data.head())
 
 
 #here we start transaforming our datasets
